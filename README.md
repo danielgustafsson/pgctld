@@ -13,4 +13,16 @@ supported. Restarting the API server right now blocks on the forked postgres
 process keeping the socket bound, this is a known limitation which will be
 fixed.
 
+To invoke, run the API server and call it with curl:
+
+    :~ $ curl -k https://127.0.0.1:8888/status
+    pg_ctl: no server running
+    :~ $ curl -k https://127.0.0.1:8888/start
+    ^C
+    :~ $ curl -k https://127.0.0.1:8888/status
+    pg_ctl: server is running (PID: 40167)
+
+Currently there is no postback from `/start` to report status, this too will be
+fixed.
+
 The kore installation must be built using the `TASKS=1` flavor.
