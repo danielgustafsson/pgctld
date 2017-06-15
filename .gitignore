@@ -1,0 +1,6 @@
+*.o
+.flavor
+.objs
+pgctld.so
+assets.h
+cert
